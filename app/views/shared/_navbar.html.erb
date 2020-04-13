@@ -1,38 +1,70 @@
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Project name</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+        <div class="row">
+          <div class="col-md-9"> <!-- menu area start -->
+            <div class="menu-area">
+              <ul class="nav navbar-nav">
+                <li class="book-library"><a href="">Book Library</a></li>
+                <li class="dropdown">
+                        <a href="#" class="dropdown-toggle_1" data-toggle="dropdown"
+                              role="button" aria-haspopup="true" aria-expanded="false">
+                              DISCOVER <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Action & Adventure </a></li>
+                          <li><a href="#">Bios & History</a></li>
+                          <li><a href="#">Children's</a></li>
+                          <li><a href="#">Fantasy</a></li>
+                          <li><a href="#">Historical Fiction</a></li>
+                          <li><a href="#">Horror</a></li>
+                          <li><a href="#">Literary Fiction</a></li>
+                          <li><a href="#">Mystery & Thriller</a></li>
+                          <li><a href="#">Non Fiction</a></li>
+                          <li><a href="#">Romance</a></li>
+                          <li><a href="#">Science Fiction</a></li>
+                          <li><a href="#">Young Adult</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li><a href="#">Young Adult</a></li>
+                        </ul>
+                      </li>
               </ul>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="../navbar/">Default</a></li>
-            <li class="active"><a href="./">Static top <span class="sr-only">(current)</span></a></li>
-            <li><a href="../navbar-fixed-top/">Fixed top</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
+            </div><!-- menu area end -->
+            
+          </div>
+          <div class="col-md-3">
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <% if (!user_signed_in?) %>
+                  <li><%= link_to "Login", new_user_session_path %></li>
+                  <li><%= link_to "SignUp", new_user_registration_path %></li>
+                  
+                <% else %>
+                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                              role="button" aria-haspopup="true" aria-expanded="false">
+                              <%= current_user.email%> <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#"></a></li>
+                        
+                          <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+                          
+                        </ul>
+                      </li>
+
+                <% end -%>
+                
+                
+               
+              </ul>
+            
+            </div><!--/.nav-collapse -->
+            
+          </div>
+        </div>
+
+
       </div>
     </nav>
