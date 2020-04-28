@@ -1,2 +1,32 @@
-<h1>Book#pricing</h1>
-<p>Find me in app/views/book/pricing.html.erb</p>
+<div class="row">
+	<div class="col-md-3">
+		<%= render'book_menu'%>
+	</div>
+	<div class="col-md-9">
+		<div class="panel panel-default">
+
+			<div class="panel-heading">
+				Pricing
+			</div>
+
+			<div class="panel-body">
+				<div class="container">
+					<%= form_for @book do |b|%>
+					 <div class="row">
+					 	<div class="form-group">
+					 		<label>Price</label>
+					 		<%= b.text_field :price, placeholder: "$ 250", class: "form-control" %>
+					 	</div>
+					 </div>
+
+					 <div class="text-center">
+					 	<%= b.submit "Save", class: "btn btn-form" %>
+					 </div>
+
+					<% end -%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

@@ -1,2 +1,37 @@
-<h1>Book#amenities</h1>
-<p>Find me in app/views/book/amenities.html.erb</p>
+<div class="row">
+	<div class="col-md-3">
+		<%= render 'book_menu'%>
+	</div>
+	<div class="col-md-9">
+		<div class="panel panel-default">
+
+			<div class="panel-heading">
+				Amenities
+			</div>
+
+			<div class="panel-body">
+				<div class="container">
+					<%= form_for @book do |b|%>
+						<div class="row form-group">
+							<div class="col-md-4">
+								<%= b.check_box :borrow %> Borrow
+							</div>
+							<div class="col-md-4">
+								<%= b.check_box :is_paper_back %> Paper_Back
+							</div>
+							<div class="col-md-4">
+								<%= b.check_box :is_pdf %> PDF
+							</div>
+							
+						</div>
+
+						<div class="text-center">
+							<%= b.submit "Save", class: "btn btn-form" %>
+						</div>
+					<% end -%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
