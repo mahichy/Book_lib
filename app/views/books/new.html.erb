@@ -2,5 +2,48 @@
 	<div class="panel-heading">
 		Add Your Book Here
 	</div>
+	<div class="panel-body">
+		<div class="container">
+			<%= form_for @book do |b|%>
+
+			<div class="row">
+				<div class="col-md-4 select">
+					<div class="form-group">
+						<label>Subjects</label>
+						<%= b.select :subject, [["Arts","Arts"], ["Animals","Animals"], ["Fiction","Fiction"], ["Science & Mathematics", "Science & Mathematics"]], 
+						     id: "subject", prompt: " Select...", class: "form-control" %>
+					</div>
+				</div>
+
+				<div class="col-md-4 select">
+					<div class="form-group">
+						<label>Book Type</label>
+						<%= b.select :book_type, [["Architecture","Architecture"], [" Art Instruction"," Art Instruction"], [" Art History"," Art History"]],
+						     id: "book_type", prompt: " Select...", class: "form-control" %>
+					</div>
+				</div>
+
+				<div class="col-md-4 select">
+					<div class="form-group">
+						<label>Author Name</label>
+						<%= b.select :author_name, [["Mahi Chowdhury","Mahi Chowdhury"], ["Oshim","Oshim"], ["Bishal","Bishal"], ["Rayhan ", "Rayhan "]], 
+						     id: "author_name", prompt: " Select...", class: "form-control" %>
+					</div>
+				</div>
+
+				<div class="col-md-4 select">
+					<div class="form-group">
+						<label>Pages</label>
+						<%= b.select :pages, [["100", 100], ["150", 150], ["200+", 200]], 
+						     id: "pages", prompt: " Select...", class: "form-control" %>
+					</div>
+				</div>
+			</div><br><br>
+
+			<div><%=  b.submit "Entry Your Book", class: "btn btn-normal" %></div>
+
+			<% end -%>
+		</div>
+	</div>
 	
 </div>

@@ -15,7 +15,7 @@ class BooksController < ApplicationController
   def create
     @book = current_user.books.build(book_params)
     if @book.save
-      redirect_to listing_room_path(@room), notice: "Saved.....!"
+      redirect_to listing_book_path(@book), notice: "Saved.....!"
     else
       render :new, notice: "Something went wrong......."
     end
@@ -63,6 +63,6 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:room).permit(:subject, :book_type, :author_name, :pages, :listing_name, :summery, :address, :borrow, :is_paper_back, :is_pdf, :price, :active)
+    params.require(:book).permit(:subject, :book_type, :author_name, :pages, :listing_name, :summery, :address, :borrow, :is_paper_back, :is_pdf, :price, :active)
   end
 end
