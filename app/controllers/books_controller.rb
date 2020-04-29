@@ -17,8 +17,8 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to listing_book_path(@book), notice: "Saved.....!"
     else
-      render :new, notice: "Something went wrong......."
-    end
+      flash[:alert] = "Something Went Wrong...." 
+      render :new
   end
 
   def show
@@ -50,7 +50,7 @@ class BooksController < ApplicationController
     if @book.update(book_params)
       flash[:notice] = "Saved...."
     else
-        flash[:notice] = "Something went wrong....."
+        flash[:alert] = "Something went wrong....."
       end
 
       redirect_back(fallback_location: request.referer)
@@ -65,4 +65,5 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:subject, :book_type, :author_name, :pages, :listing_name, :summery, :address, :borrow, :is_paper_back, :is_pdf, :price, :active)
   end
+  
 end
