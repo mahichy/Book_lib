@@ -16,13 +16,13 @@
 						<div class="row">
 							<div class="form-group">
 								<label>Book Name</label>
-								<%= b.text_field :listing_name, placeholder: "What is your Book Nmae?", class: "form-control" %>
+								<%= b.text_field :listing_name, placeholder: "What is your Book Nmae?", class: "form-control", required: true %>
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group">
 								<label>Summery</label>
-								<%= b.text_area :summary, rows: 5, placeholder: "Summery of your book.", class: "form-control" %>
+								<%= b.text_area :summary, rows: 5, placeholder: "Summery of your book.", class: "form-control", required: true %>
 							</div>
 						
 								
