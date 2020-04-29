@@ -19,6 +19,7 @@ class BooksController < ApplicationController
     else
       flash[:alert] = "Something Went Wrong...." 
       render :new
+    end
   end
 
   def show
@@ -65,5 +66,5 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:subject, :book_type, :author_name, :pages, :listing_name, :summery, :address, :borrow, :is_paper_back, :is_pdf, :price, :active)
   end
-  
+
 end
