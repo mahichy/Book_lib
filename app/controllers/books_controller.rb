@@ -39,6 +39,7 @@ class BooksController < ApplicationController
   end
 
   def photo_upload
+    @photos = @book.photos
   end
 
   def amenities
