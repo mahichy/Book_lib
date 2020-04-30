@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_22_183341) do
+ActiveRecord::Schema.define(version: 2020_04_30_154017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(version: 2020_04_22_183341) do
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.bigint "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["book_id"], name: "index_photos_on_book_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -53,4 +64,5 @@ ActiveRecord::Schema.define(version: 2020_04_22_183341) do
   end
 
   add_foreign_key "books", "users"
+  add_foreign_key "photos", "books"
 end
