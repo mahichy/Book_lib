@@ -2,6 +2,7 @@ class BooksController < ApplicationController
 
   before_action :set_book, except: [:index, :new, :create] 
   before_action :authenticate_user!, except: [:show]
+  before_action :is_admin, only: [:listing, :pricing, :description, :photo_upload, :amenities, :location, :update]
 
 
   def index
@@ -62,6 +63,10 @@ class BooksController < ApplicationController
 
   def set_book
      @book = Book.find(params[:id])
+  end
+
+  def is_admin
+    redirect_to root_path, alert: "Yon don't have permission...." unless current_user.id == @book.user_id
   end
 
  
