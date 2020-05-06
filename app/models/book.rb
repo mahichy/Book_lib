@@ -7,6 +7,6 @@ class Book < ApplicationRecord
   validates :author_name, presence: true
   validates :pages, presence: true
 
-  mount_uploader :image, ImageUploader 
+ 
   
 end
