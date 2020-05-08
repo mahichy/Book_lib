@@ -38,10 +38,7 @@ ActiveRecord::Schema.define(version: 2020_04_30_154017) do
     t.bigint "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
+    t.string "image"
     t.index ["book_id"], name: "index_photos_on_book_id"
   end
 
