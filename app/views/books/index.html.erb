@@ -1,11 +1,21 @@
- <div class="row">
 
-	<div class="col-md-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				Book List
-			</div>
-			<div class="panel-body">
+
+ <div class="row">
+ 	<div class="col-md-3">
+ 		<ul class="sidebar-list">
+ 			<li class="sidebar-item"><%= link_to "Enter New Book", new_book_path, class: "btn btn-form" %></li>
+ 		</ul>
+ 	</div>
+ 	
+ 	<div class="col-md-12">
+ 		<div class="panel panel-default">
+ 			<div class="panel-heading">
+ 				Book List
+ 			</div>
+ 		</div>
+ 	</div>
+
+ 	<div class="panel-body">
 				<%= @books.each do |book|%>
 					<div class="row">
 						<div class="col-md-2">
@@ -15,8 +25,8 @@
 							<h4><%= book.listing_name %></h4>
 						</div>
 						<div class="col-md-3">
-							<%= link_to 'Edit', listing_book_path(book), class: "btn btn-form" %> <br><br>
-							<%= link_to 'Back', books_path, class: "btn btn-form" %>
+							<%= link_to 'Edit', listing_book_path(book), class: "btn btn-form" %> 
+							
 						
 						</div>
 						<div class="col-md-3">
@@ -26,7 +36,5 @@
 					</div>
 				<% end -%>
 			</div>
-		</div>
-	</div>
-</div> 
 
+ </div>
