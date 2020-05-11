@@ -24,7 +24,14 @@
 								<label>Summery</label>
 								<%= b.text_area :summary, rows: 5, placeholder: "Summery of your book.", class: "form-control", required: true %>
 							</div>
-						
+
+						</div>
+
+						<div class="text-center">
+							<%= b.submit "Save", class: "btn btn-form" %>
+						</div>
+
+
 								
 					<% end -%>
 				</div>

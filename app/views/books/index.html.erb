@@ -15,38 +15,38 @@
 			</div>
 			<div class="panel-body">
 				
-				<% @books.each do |book|%>
-					<table class="table">
+				
+				<table class="table">
 				  <thead>
 				    <tr>
 				      <th scope="col">SL</th>
-				      <th scope="col">Book Cover</th>
+				      <th scope="col">Book Cover Image</th>
 				      <th scope="col">Title</th>
 				      <th scope="col">Description</th>
 				      <th scope="col">Auther</th>
 				      <th scope="col">Action</th>
 				    </tr>
 				  </thead>
+
+
 				  	<tbody>
-				    <tr>
-				      <th scope="row">1</th>
-				      <td class="img"><%= image_tag book.photos[0].image.url() if book.photos.length > 0 %></td>
-				    </tr>
-				    <tr>
-				      <th scope="row">2</th>
-				      <td>Jacob</td>
-				      <td>Thornton</td>
-				      <td>@fat</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">3</th>
-				      <td>Larry</td>
-				      <td>the Bird</td>
-				      <td>@twitter</td>
-				    </tr>
+
+				  		<% @books.each do |bk|%>
+							<tr>
+								<td></td>
+								<td><%= image_tag bk.photos[0].image.url() if bk.photos.length > 0 %></td>
+								<td><%= bk.listing_name %></td>
+								<td><%= bk.summary%></td>
+								<td><%= bk.author_name%></td>
+
+							
+							</tr>
+				  		<% end -%>
+
+				    
 				  </tbody>
-			</table>
-				<% end -%>
+				</table>
+				
 			</div>
 			
 		</div>
