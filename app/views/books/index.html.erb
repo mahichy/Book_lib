@@ -1,40 +1,55 @@
+<div class="row">
+	<div class="col-md-3">
+		<ul class="sidebar-list">
+			
+		<li class="sidebar-item"><%= link_to "Ener New Book", new_book_path, class: "btn btn-form"%></li>
+		</ul>
+	</div>
+	<div class="col-md-9">
 
-
- <div class="row">
- 	<div class="col-md-3">
- 		<ul class="sidebar-list">
- 			<li class="sidebar-item"><%= link_to "Enter New Book", new_book_path, class: "btn btn-form" %></li>
- 		</ul>
- 	</div>
- 	
- 	<div class="col-md-12">
- 		<div class="panel panel-default">
- 			<div class="panel-heading">
- 				Book List
- 			</div>
- 		</div>
- 	</div>
-
- 	<div class="panel-body">
-				<%= @books.each do |book|%>
-					<div class="row">
-						<div class="col-md-2">
-							<%= image_tag book.photos[0].image.url() if book.photos.length > 0 %>
-						</div>
-						<div class="col-md-4">
-							<h4><%= book.listing_name %></h4>
-						</div>
-						<div class="col-md-3">
-							<%= link_to 'Edit', listing_book_path(book), class: "btn btn-form" %> 
-							
-						
-						</div>
-						<div class="col-md-3">
-							<%= link_to 'Back', books_path, class: "btn btn-form" %>
-
-						</div>
-					</div>
+		<div class="row">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Book List
+				</div>
+			</div>
+			<div class="panel-body">
+				
+				<% @books.each do |book|%>
+					<table class="table">
+				  <thead>
+				    <tr>
+				      <th scope="col">SL</th>
+				      <th scope="col">Book Cover</th>
+				      <th scope="col">Title</th>
+				      <th scope="col">Description</th>
+				      <th scope="col">Auther</th>
+				      <th scope="col">Action</th>
+				    </tr>
+				  </thead>
+				  	<tbody>
+				    <tr>
+				      <th scope="row">1</th>
+				      <td class="img"><%= image_tag book.photos[0].image.url() if book.photos.length > 0 %></td>
+				      
+				    </tr>
+				    <tr>
+				      <th scope="row">2</th>
+				      <td>Jacob</td>
+				      <td>Thornton</td>
+				      <td>@fat</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">3</th>
+				      <td>Larry</td>
+				      <td>the Bird</td>
+				      <td>@twitter</td>
+				    </tr>
+				  </tbody>
+			</table>
 				<% end -%>
 			</div>
-
- </div>
+			
+		</div>
+	</div>
+</div>
