@@ -1,0 +1,89 @@
+<!-- Image -->
+
+<div class="row">
+	<div class="col-md-12">
+		<%= image_tag @book.cover_photo(), width: "100%" %>
+	</div>
+</div>
+
+<br>
+
+
+
+<div class="row">
+	<!-- Left Pannel -->
+	<div class="col-md-8">
+		<!-- Info Listing Name -->
+		<div class="row">
+			<div class="col-md-8">
+				<h1><%= @book.listing_name %></h1>
+				<%= @book.address %>
+			</div>
+			<div class="col-md-4 text-center">
+				<%= image_tag avatar_url(@book.user), class: "img-circle avatar_large" %> <br><br>
+				<%= @book.user.fullname%>
+			</div>
+		</div>
+		<hr>
+
+		<!-- Info Book -->
+		<div class="row text-babu">
+			<div class="row text-center row-space-1">
+				<div class="col-md-3">
+					<i class="fa fa-book" aria-hidden="true"></i>
+				</div>
+				<div class="col-md-3">
+					<i class="fa fa-file" aria-hidden="true"></i>
+				</div>
+				<div class="col-md-3">
+					<i class="fas fa-user"></i>
+				</div>
+				<div class="col-md-3">
+					<i class="fa fa-file-text-o" aria-hidden="true"></i>
+				</div>
+			</div>
+
+			<div class="row text-center">
+				<div class="col-md-3"><%= @book.subject %></div>
+				<div class="col-md-3"><%= @book.book_type %></div>
+				<div class="col-md-3"><%= @book.author_name %></div>
+				<div class="col-md-3"><%= @book.pages %></div>
+			</div>
+		</div>
+		<hr>
+
+		<!-- Info About -->
+		<div class="row">
+			<div class="col-md-12">
+				<h2>About this listing</h2>
+				<%= @book.summary%>
+			</div>
+		</div>
+		<hr>
+
+		<!-- Info Amenities -->
+		<div class="row">
+			<div class="col-md-3">
+				<h3>Amenities</h3>
+			</div>
+			<div class="col-md-9">
+				
+						<ul class="amenities">
+							<li class="<%= 'text-line-through' if !@book.borrow %>">Borrow</li>
+							<li class="<%= 'text-line-through' if !@book.is_pdf %>">Pdf</li>
+							<li class="<%= 'text-line-through' if !@book.is_paper_back%>">Paper_back</li>
+						</ul>
+					
+			</div>
+		</div>
+		<hr>
+
+		
+
+		
+	</div>
+
+	
+	<!-- Right Pannel -->
+	<div class="col-md-4"></div>
+</div>

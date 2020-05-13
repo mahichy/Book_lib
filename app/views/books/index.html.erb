@@ -29,15 +29,20 @@
 				    </tr>
 				  </thead>
 				  	<tbody>
-				  		<% @books.each do |bk|%>
+				  		<% li = 0 %>
+				  		<% @books.each do |book|%>
+				  		<% li = li + 1%>
 							<tr>
-								<td><%= %></td>
-								<td><%= image_tag bk.cover_photo() %></td>
-								<td><%= bk.listing_name %></td>
-								<td><%= bk.summary%></td>
-								<td><%= bk.author_name%></td>
-								<td><%= bk.pages%></td>
-								<td><%= link_to "show", books_path%> | <%= link_to "delete", books_path%>| <%= link_to "Edit", books_path%> </td>
+								<td><%= li %></td>
+								<td><%= image_tag book.cover_photo() %></td>
+								<td><%= book.listing_name %></td>
+								<td><%= book.summary%></td>
+								<td><%= book.author_name%></td>
+								<td><%= book.pages%></td>
+								<td><%= link_to 'Show', books_path %> |  
+									<%= link_to "Edit", books_path%> |  
+									<%= link_to "Delete", books_path%> </td>
+
 							</tr>
 				  		<% end -%>
 				  </tbody>
