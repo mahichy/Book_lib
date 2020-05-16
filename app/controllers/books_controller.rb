@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
-  before_action :set_book, except: [:index, :new, :create, :destroy] 
-  before_action :authenticate_user!, except: [:show]
+  before_action :set_book, except: [:index, :new, :create,:destroy] 
+  before_action :authenticate_user!, except: [:show ]
   before_action :is_admin, only: [:listing, :pricing, :description, :photo_upload, :amenities, :location, :update]
 
 
@@ -61,17 +61,27 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book.destroy
+    @book = Book.find(params[:id])
+    @book.photos.delete_all
 
     if @book.destroy
-        redirect_to book_path, notice: "Book Was successfully destroyed."
+        redirect_to books_path, notice: "Book Was successfully destroyed."
       else
-        flash[:alert] = "Something Went Wrong...." 
-        render :new
-
+        redirect_to books_path, error: "Something went wrong......"
       end
-    
   end
+
+
+
+
+
+  # def destroy
+  #   @test.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to tests_url, notice: 'Test was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
  
 
