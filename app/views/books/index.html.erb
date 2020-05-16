@@ -40,7 +40,7 @@
 								<td><%= book.author_name%></td>
 								<td><%= book.pages%></td>
 								<td><%= link_to 'Show', book_path(book) %> |  
-									<%= link_to "Edit", books_path%> |  
+									<%= link_to "Edit", listing_book_path(book)%> |  
 									<%= link_to "Delete", book_path(book), method: :delete, data: {confirm: "Are you sure?"} %> </td>
 
 							</tr>
