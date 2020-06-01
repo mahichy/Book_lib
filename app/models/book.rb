@@ -2,6 +2,8 @@ class Book < ApplicationRecord
   belongs_to :user
   has_many :photos
 
+  paginates_per 5
+
   validates :subject, presence: true
   validates :book_type, presence: true
   validates :author_name, presence: true

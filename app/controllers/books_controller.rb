@@ -10,7 +10,7 @@ class BooksController < ApplicationController
   end
 
   def new
-    @book = current_user.books.build
+    @books = current_user.books.order('created_at DESC').page(params[:page])
   end
 
   def create
